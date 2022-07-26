@@ -1,0 +1,25 @@
+.review-tile h2 {
+    padding: 5% 0
+}
+
+.review-tile p {
+    padding: 0 5% 5%;
+    font-size: .95rem
+}
+
+.review-tile picture {
+    margin: auto;
+    width: 90%;
+    aspect-ratio: 16/11;
+    display: flex;
+    justify-content: center;
+}
+.review-text {
+    margin: 5%
+}
+
+.counts {
+    display: flex;
+    justify-content: center;
+}
+

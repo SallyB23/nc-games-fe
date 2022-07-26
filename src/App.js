@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { UserContext } from './contexts/User';
 import './App.css';
 import ReviewsListPage from './pages/ReviewsListPage';
+import ReviewPage from './pages/ReviewPage';
 import Homepage from './pages/Homepage';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
@@ -24,6 +25,7 @@ function App() {
               <Route path="reviews" element={<ReviewsListPage />}>
                 <Route path=":category" element={<ReviewsListPage/>} />
               </Route>
+              <Route path="review/:review" element={<ReviewPage />} />
             </Routes>
           </main>
         </div>
