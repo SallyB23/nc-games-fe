@@ -1,5 +1,5 @@
 export default function ReviewCard ({ review }) {
-    const { title, review_img_url} = review
+    const { title, review_img_url } = review
     return <div className="review-card">
         <img src={review_img_url} alt="review img" />
         <div className="review-selection">

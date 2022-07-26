@@ -21,7 +21,9 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<Homepage />}/>
-              <Route path="/reviews" element={<ReviewsListPage />}/>
+              <Route path="reviews" element={<ReviewsListPage />}>
+                <Route path=":category" element={<ReviewsListPage/>} />
+              </Route>
             </Routes>
           </main>
         </div>
