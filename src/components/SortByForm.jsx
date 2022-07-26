@@ -23,7 +23,7 @@ export default function SortByForm ({ setOrderBy, setCategory, category }) {
         <form className="sort-by-form">
             <label htmlFor="category-filter">Filter by Category</label>
             <select onClick={e => setCategory(e.target.value)} name="category" id="category-filter">
-                <option value="" selected>{category}</option> 
+                <option value="" selected>all</option> 
                 {filterCategories.map((category, i) => {
                     const categoryName = category.slug.replaceAll("-", " ")
                     return <option key={i} value={categoryName}>{categoryName}</option>
