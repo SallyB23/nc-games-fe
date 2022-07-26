@@ -8,6 +8,10 @@ export function getCategories() {
     return api.get("categories")
 }
 
-export function getReviewList() {
-    return api.get("reviews")
+export function getReviewList(category) {
+    return api.get("reviews", {params: {category: category }})
+}
+
+export function getFilteredReviewList(category) {
+    return api.get(`reviews?category=${category}`)
 }
