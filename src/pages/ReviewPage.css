@@ -23,3 +23,35 @@
     justify-content: center;
 }
 
+@media screen and (min-width: 900px) {
+    .review-tile {
+        display: grid;
+        grid-template-areas: 
+        "title title"
+        "author author"
+        "img body";
+        grid-template-columns: 50%;
+        grid-template-rows: auto auto;
+        align-items: center;
+    }
+
+    .review-tile h2 {
+        grid-area: title;
+        padding-bottom: 10px
+    }
+
+    .author-details {
+        grid-area: author;
+        padding: 0
+    }
+
+    .review-tile img {
+        grid-area: img;
+
+    }
+
+    .review-body {
+        grid-area: body;
+        padding: 0;
+    }
+}
