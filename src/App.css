@@ -1,3 +1,22 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
 .App {
   text-align: center;
 }
+
+.signed-in {
+  font-size:0.75rem;
+}
+
+/* 
+.title-banner {
+  position: fixed;
+  width: 100%
+}
+
+main {
+  margin-top: 60px
+} */
