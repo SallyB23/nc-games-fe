@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function SortByForm ({ setOrderBy, setCategory, category }) {
     const [ filterCategories, setFilterCategories ] = useState([])
-    const [ selectedCategory, setSelectedCategory ] = useState()
-    console.log(selectedCategory)
-    // console.log(category, "<<category")
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,14 +16,14 @@ export default function SortByForm ({ setOrderBy, setCategory, category }) {
 
     const handleFilterClick = (e) => {
         e.preventDefault()
-        navigate(selectedCategory)
+        navigate(category)
     }
 
     return (
         <form className="sort-by-form">
             <label htmlFor="category-filter">Filter by Category</label>
-            <select onClick={e => setSelectedCategory(e.target.value)} name="category" id="category-filter">
-                <option value="" selected>all</option> 
+            <select onClick={e => setCategory(e.target.value)} name="category" id="category-filter">
+                <option value="" selected>{category}</option> 
                 {filterCategories.map((category, i) => {
                     const categoryName = category.slug.replaceAll("-", " ")
                     return <option key={i} value={categoryName}>{categoryName}</option>

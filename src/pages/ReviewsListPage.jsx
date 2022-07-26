@@ -4,12 +4,12 @@ import SortByForm from "../components/SortByForm"
 import "./ReviewListPage.css"
 
 export default function ReviewsListPage () {
-    // const [ orderBy, setOrderBy ] = useState("desc")
+    const [ category, setCategory] = useState("")
 
     return (
         <main>
-            <SortByForm />
-            <ReviewList />
+            <SortByForm category={category} setCategory={setCategory}/>
+            <ReviewList setCategory={setCategory}/>
         </main>
     )
 

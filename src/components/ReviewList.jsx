@@ -3,7 +3,7 @@ import { getReviewList, getFilteredReviewList } from "../axios"
 import ReviewCard from "./ReviewCard"
 import { useParams } from "react-router-dom"
 
-export default function ReviewList() {
+export default function ReviewList({ setCategory }) {
     const [ reviewList, setReviewList ] = useState([])
     const { category } = useParams()
 
