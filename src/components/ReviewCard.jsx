@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 export default function ReviewCard ({ review }) {
-    const { title, review_img_url, review_id } = review
+    const { title, review_img_url, votes, comment_count, review_id, category, created_at } = review
     const navigate = useNavigate()
 
 
@@ -13,6 +13,12 @@ export default function ReviewCard ({ review }) {
         <img src={review_img_url} alt="review img" />
         <div className="review-selection">
             <h3>{title}</h3>
+            {category} <br />
+            {created_at}
+            <div className="count">
+                <p>votes: {votes}</p>
+                <p>comments: {comment_count}</p>
+            </div>
             <button onClick={handleClick}>Read Review</button>   
         </div>
     </div>
