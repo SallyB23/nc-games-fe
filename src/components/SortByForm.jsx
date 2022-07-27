@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 
 export default function SortByForm ({ setOrderBy, setCategory, category }) {
     const [ filterCategories, setFilterCategories ] = useState([])
-
     const navigate = useNavigate()
 
     useEffect(() => {
