@@ -1,5 +1,9 @@
 import "./Homepage.css"
+import { UserContext } from "../contexts/User"
+import { useContext } from "react"
 
 export default function Homepage () {
-    return <h2>This is the homepage!</h2>
+    const { username } = useContext(UserContext)
+
+    return <h2>Welcome {username}</h2>
 }
