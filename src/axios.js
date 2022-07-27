@@ -15,3 +15,7 @@ export function getReviewList() {
 export function getFilteredReviewList(category) {
     return api.get(`reviews?category=${category}`)
 }
+
+export function getReviewById(id) {
+    return api.get(`reviews/${id}`)
+}
