@@ -11,7 +11,6 @@ export default function ReviewList({ setCategory, orderBy, orderDirection }) {
 
     useEffect(() => {
         setIsLoading(true)
-        console.log(orderBy)
         getReviewList(category, orderBy, orderDirection).then(({ data }) => {
             setReviewList(data.reviews)
             setIsLoading(false)

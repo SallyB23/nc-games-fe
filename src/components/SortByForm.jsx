@@ -4,11 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function SortByForm({
   setOrderBy,
-  orderBy,
   setCategory,
   category,
   setOrderDirection,
-  orderDirection,
 }) {
   const [filterCategories, setFilterCategories] = useState([]);
   const [ selectedOrder , setSelectedOrder ] = useState("")
@@ -22,13 +20,12 @@ export default function SortByForm({
     });
   }, []);
 
-  const handleFilterClick = (e) => {
-    e.preventDefault();
-    navigate(category);
+  const handleFilterClick = () => {
+    if (category !== "all") navigate(category);
+    else navigate("/reviews")
   };
 
-  const handleOrderClick = (e) => {
-    e.preventDefault();
+  const handleOrderClick = () => {
     setOrderBy(selectedOrder)
     setOrderDirection(selectedDirection)
   };
@@ -37,7 +34,7 @@ export default function SortByForm({
     <form className="sort-by-form">
       <label htmlFor="category-filter">Filter by Category</label>
       <select
-        onClick={(e) => setCategory(e.target.value)}
+        onChange={(e) => setCategory(e.target.value)}
         name="category"
         id="category-filter"
       >
@@ -53,10 +50,10 @@ export default function SortByForm({
           );
         })}
       </select>
-      <button onClick={handleFilterClick}>Filter</button>
+      <button type="button" onClick={handleFilterClick}>Filter</button>
       <br />
       <label htmlFor="sort-options">Order By</label>
-      <select onClick={(e) => setSelectedOrder(e.target.value)} name="sort" id="sort-options">
+      <select onChange={(e) => setSelectedOrder(e.target.value)} name="sort" id="sort-options">
         <option value="created_at">date</option>
         <option value="title">title</option>
         <option value="comment_count">comment count</option>
@@ -86,7 +83,7 @@ export default function SortByForm({
       />
       <label htmlFor="desc">descending</label>
       <br />
-      <button onClick={handleOrderClick}>Order Reviews</button>
+      <button type="button" onClick={handleOrderClick}>Order Reviews</button>
     </form>
   );
 }
