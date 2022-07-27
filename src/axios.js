@@ -8,14 +8,13 @@ export function getCategories() {
     return api.get("categories")
 }
 
-export function getReviewList() {
-    return api.get("reviews")
-}
-
-export function getFilteredReviewList(category) {
-    return api.get(`reviews?category=${category}`)
-}
-
 export function getReviewById(id) {
     return api.get(`reviews/${id}`)
+}
+
+export function getReviewList(category, orderBy, orderDirection) {
+    console.log (category, "<< category")
+    console.log( orderBy, "<< orderBy")
+    console.log( orderDirection, "<<order direction")
+    return api.get('reviews', { params: { category: category, sort_by: orderBy, order: orderDirection }})
 }
