@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 
 export default function SortByForm ({ setOrderBy, setCategory, category }) {
     const [ filterCategories, setFilterCategories ] = useState([])
+    const [ orderDirection, setOrderDirection ] = useState("desc")
+    // const [ orderDirectionButtonText, setOrderDirectionButtonText] = useState("descending")
 
     const navigate = useNavigate()
 
@@ -17,6 +19,11 @@ export default function SortByForm ({ setOrderBy, setCategory, category }) {
     const handleFilterClick = (e) => {
         e.preventDefault()
         navigate(category)
+    }
+
+    const handleOrderClick = (e) => {
+        e.preventDefault()
+        console.log(orderDirection)
     }
 
     return (
@@ -34,10 +41,14 @@ export default function SortByForm ({ setOrderBy, setCategory, category }) {
             <select name="sort" id="sort-options">
                 <option value="created_at">date</option>
                 <option value="title">title</option>
-                <option value="owner">review author</option>
+                <option value="owner">comment count</option>
                 <option value="votes">number of votes</option>
-            </select>
-            <button>Descending</button>
+            </select><br />
+            <input type="radio" id="asc" name="order-direction" value="asc" checked={orderDirection === "asc"}onChange={() => {setOrderDirection("asc")}}/>
+            <label htmlFor="asc">ascending</label>
+            <input type="radio" id="desc" name="order-direction" value="desc" checked={orderDirection === "desc"} onChange={() => {setOrderDirection("desc")}}/>
+            <label htmlFor="desc">descending</label><br />
+            <button onClick={handleOrderClick}>Order Reviews</button>
         </form>
     )
 }

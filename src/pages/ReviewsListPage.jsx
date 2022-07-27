@@ -5,11 +5,12 @@ import "./ReviewListPage.css"
 
 export default function ReviewsListPage () {
     const [ category, setCategory] = useState("")
+    const [ orderBy, setOrderBy ] = useState("")
 
     return (
         <main>
-            <SortByForm category={category} setCategory={setCategory}/>
-            <ReviewList setCategory={setCategory}/>
+            <SortByForm category={category} setCategory={setCategory} orderBy={orderBy} setOrderBy={setOrderBy}/>
+            <ReviewList setCategory={setCategory} orderBy={orderBy}/>
         </main>
     )
 
