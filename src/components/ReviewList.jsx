@@ -13,13 +13,15 @@ export default function ReviewList({ setCategory }) {
         if (!category) {
             getReviewList().then(({data}) => {
                 setReviewList(data.reviews)
+                setIsLoading(false)
             })
         } else {
             getFilteredReviewList(category.replaceAll(" ", "-")).then(({data}) => {
                 setReviewList(data.reviews)
+                setIsLoading(false)
             })
         }
-        setIsLoading(false)
+        
     }, [category])
 
     if (isLoading) return <p>loading...</p>
