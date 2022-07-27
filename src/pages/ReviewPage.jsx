@@ -6,15 +6,19 @@ import "./ReviewPage.css"
 
 export default function ReviewPage () {
     const [ reviewData, setReviewData ] = useState({})
+    const [ isLoading, setIsLoading ] = useState(true)
     const { review } = useParams()
 
     useEffect (() => {
+        setIsLoading(true)
         getReviewById(review).then(({ data }) => {
             setReviewData(data.review)
+            setIsLoading(false)
         })
     }, [])
     
+    if (isLoading) return <p>loading...</p>
     return <main>
-        <ReviewTile reviewData={reviewData}/>
+        <ReviewTile reviewData={reviewData} />
     </main>
 }
