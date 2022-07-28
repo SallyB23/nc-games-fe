@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../axios";
+import NewCommentForm from "../components/NewCommentForm";
 import ReviewTile from "../components/ReviewTile";
 import "./ReviewPage.css"
 
@@ -29,5 +30,6 @@ export default function ReviewPage () {
     if (isErr) return <p>{errMsg}</p>
     return <main>
         <ReviewTile reviewData={reviewData} />
+        <NewCommentForm review_id={reviewData.review_id}/>
     </main>
 }

@@ -9,7 +9,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 
 function App() {
-  const [ username, setUsername ] = useState("SallyB")
+  const [ username, setUsername ] = useState("happyamy2016")
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ username, setUsername }}>

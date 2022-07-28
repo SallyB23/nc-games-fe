@@ -19,3 +19,7 @@ export function getReviewList(category, orderBy, orderDirection) {
 export function updateReviewVotes(review_id, votes) {
     return api.patch(`reviews/${review_id}`, {inc_votes: votes})
 }
+
+export function postNewComment(id, username, body) {
+    return api.post(`reviews/${id}/comments`, { username, body })
+}
