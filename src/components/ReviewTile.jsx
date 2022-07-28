@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { updateReviewVotes } from "../axios"
+import { formatDate } from "../utils/utils"
 import Votes from "./Votes"
 
 export default function ReviewTile ({ reviewData }) {
@@ -8,10 +9,7 @@ export default function ReviewTile ({ reviewData }) {
     const [ voteIncrement, setVoteIncrement ] = useState(0)
     const [ isErr, setIsErr ] = useState(false)
 
-    const dateTime = created_at.split("T")
-    const date = dateTime[0].split("-").reverse().join("/")
-    const timeArr = dateTime[1].split(":")
-    const time = timeArr.splice(0, 2).join(":")
+    const postedDate = formatDate(created_at)
 
     useEffect (() => {
         updateReviewVotes(review_id, voteIncrement)
@@ -24,7 +22,7 @@ export default function ReviewTile ({ reviewData }) {
     
     return <section className="review-tile">
         <h2>{title}</h2>
-        <p className="author-details">posted by {owner} on {date} at {time}</p>
+        <p className="author-details">posted by {owner} on {postedDate}</p>
         <picture>
             <img src={review_img_url} alt="review img" />
         </picture>

@@ -5,5 +5,5 @@ import { useContext } from "react"
 export default function Homepage () {
     const { username } = useContext(UserContext)
 
-    return <h2>Welcome {username}</h2>
+    return <h2 className="welcome-title">Welcome {username}</h2>
 }

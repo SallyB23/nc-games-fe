@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../axios";
+import CommentsTile from "../components/CommentsTile";
 import ReviewTile from "../components/ReviewTile";
 import "./ReviewPage.css"
 
@@ -29,5 +30,6 @@ export default function ReviewPage () {
     if (isErr) return <p>{errMsg}</p>
     return <main>
         <ReviewTile reviewData={reviewData} />
+        <CommentsTile review_id={reviewData.review_id} />
     </main>
 }
