@@ -21,6 +21,24 @@
 .counts {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.counts p {
+    padding: 10px
+}
+
+.counts button {
+    background-color: transparent;
+    border: none !important
+}
+
+.counts button img {
+    width: 20px;
+}
+
+.counts button:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {
