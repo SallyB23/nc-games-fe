@@ -11,10 +11,10 @@ export default function CommentsTile ({ review_id }) {
         })
     }, [])
 
-    return <>
-        <h2 className="comments-title">Comments</h2>
-        {commentList.map(comment => {
+    return <section className="comments-section">
+        <h2>Comments</h2>
+         {commentList.map(comment => {
             return <CommentCard key={comment.comment_id} comment={comment}/>
         })}
-    </> 
+    </section>
 }

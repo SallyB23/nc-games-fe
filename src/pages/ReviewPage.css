@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
 }
+
 .review-text {
     margin: 5%
 }
@@ -40,6 +41,44 @@
 .counts button:hover {
     cursor: pointer;
 }
+
+/* comment section */
+
+.comments-section {
+    text-align: left;
+    padding: 5%
+}
+
+.comments-section h2 {
+    padding-bottom: 5%
+}
+
+.comment-card {
+    display: grid;
+    grid-template-rows: 5;
+    grid-template-columns: 120px auto;
+}
+
+.comment-card h4 {
+    padding-top: 10px;
+}
+
+.comment-card h5 {
+    font-weight: normal
+}
+
+.comment-card p {
+    padding-bottom: 10%    
+}
+
+.comment-card img {
+    border-radius: 50%;
+    width: 100px;
+    grid-row-start: 1;
+    grid-row-end: 5
+}
+
+/* media queries */
 
 @media screen and (min-width: 900px) {
     .review-tile {
