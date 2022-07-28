@@ -13,8 +13,6 @@ export default function ReviewCard ({ review }) {
         <img src={review_img_url} alt="review img" />
         <div className="review-selection">
             <h3>{title}</h3>
-            {category} <br />
-            {created_at}
             <div className="count">
                 <p>votes: {votes}</p>
                 <p>comments: {comment_count}</p>
