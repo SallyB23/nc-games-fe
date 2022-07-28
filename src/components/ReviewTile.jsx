@@ -1,5 +1,7 @@
+import CommentsTile from "./CommentsTile"
+
 export default function ReviewTile ({ reviewData }) {
-    const { title, review_body, review_img_url, votes, owner, created_at, comment_count} = reviewData
+    const { title, review_body, review_img_url, votes, owner, created_at, comment_count, review_id} = reviewData
 
     const dateTime = created_at.split("T")
     const date = dateTime[0].split("-").reverse().join("/")
@@ -19,6 +21,9 @@ export default function ReviewTile ({ reviewData }) {
                 <p>votes: {votes}</p> 
                 <p>comments: {comment_count}</p>
             </div>
+        </section>
+        <section>
+            <CommentsTile review_id={review_id}/>
         </section>
     </section>
 }
