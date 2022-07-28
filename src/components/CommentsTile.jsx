@@ -13,8 +13,12 @@ export default function CommentsTile ({ review_id }) {
 
     return <section className="comments-section">
         <h2>Comments</h2>
-         {commentList.map(comment => {
+        {commentList.length === 0 ? <p>Be the first to comment on this review</p> : 
+         <>
+            {commentList.map(comment => {
             return <CommentCard key={comment.comment_id} comment={comment}/>
         })}
+         </>
+}
     </section>
 }
