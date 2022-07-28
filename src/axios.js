@@ -23,3 +23,7 @@ export function getCommentsForReview(id) {
 export function getUserDetails(username) {
     return api.get(`users/${username}`)
 }
+
+export function updateReviewVotes(review_id, votes) {
+    return api.patch(`reviews/${review_id}`, {inc_votes: votes})
+}
