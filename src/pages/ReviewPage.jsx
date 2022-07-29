@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../axios";
-import NewCommentForm from "../components/NewCommentForm";
 import CommentsTile from "../components/CommentsTile";
 import ReviewTile from "../components/ReviewTile";
 import "./ReviewPage.css"
