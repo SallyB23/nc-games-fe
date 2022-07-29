@@ -9,6 +9,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import InvalidUrl from './pages/InvalidUrl';
 
 function App() {
   const [ username, setUsername ] = useState("happyamy2016")
@@ -30,6 +31,7 @@ function App() {
                 <Route path=":category" element={<ReviewsListPage/>} />
               </Route>
               <Route path="review/:review" element={<ReviewPage />} />
+              <Route path="*" element={<InvalidUrl />} />
             </Routes>
           </main>
         </div>
