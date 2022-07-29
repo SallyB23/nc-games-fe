@@ -6,6 +6,8 @@ import NewCommentForm from "./NewCommentForm"
 export default function CommentsTile ({ review_id }) {
     const [ commentList, setCommentList ] = useState([])
     const [ isLoading, setIsLoading ] = useState(false)
+    const [ isErr, setIsErr ] = useState(false)
+    const [ errMsg, setErrMsg ] = useState("")
 
     useEffect(() => {
         setIsLoading(true)
@@ -16,10 +18,11 @@ export default function CommentsTile ({ review_id }) {
     }, [])
 
     if (isLoading) return <p>loading...</p>
-    return <section className="comments-section">
+    return <section id="comments-section">
         <h2>Comments</h2>
+            {isErr && <p className="error-msg">{errMsg}</p>}
             {commentList.map(comment => {
-            return <CommentCard key={comment.comment_id} comment={comment}/>
+            return <CommentCard setErrMsg={setErrMsg} setIsErr={setIsErr} commentList={commentList} setCommentList={setCommentList} key={comment.comment_id} comment={comment}/>
         })}
         <NewCommentForm review_id={review_id} setCommentList={setCommentList} commentList={commentList}/>
     </section>
