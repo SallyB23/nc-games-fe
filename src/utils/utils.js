@@ -5,3 +5,7 @@ export function formatDate (created_at) {
     const time = timeArr.splice(0, 2).join(":")
     return `${date} at ${time}`
 }
+
+export function isPictureUrl (url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif|svg)/.test(url)
+}

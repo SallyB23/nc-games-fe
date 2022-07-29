@@ -31,3 +31,7 @@ export function updateReviewVotes(review_id, votes) {
 export function postNewComment(id, username, body) {
     return api.post(`reviews/${id}/comments`, { username, body })
 }
+
+export function postNewUser(name, username, avatar_url) {
+    return api.post('users', { name, username, avatar_url })
+}

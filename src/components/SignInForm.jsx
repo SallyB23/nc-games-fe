@@ -21,13 +21,13 @@ export default function SignInForm () {
         })
     }
 
-    return <section>
+    return <section className="sign-in-forms">
     <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
-        <input onChange={(e) => {setInputUsername(e.target.value)}} type="text" />
+        <input onChange={(e) => {setInputUsername(e.target.value)}} type="text" /><br/>
         <button type="submit">Sign in!</button>
     </form>
     <p>Need an account? <Link to="/sign-up">Sign up here!</Link></p>
-    {isErr && <p>{errMsg}</p>}
+    {isErr && <p className="error-msg">{errMsg}</p>}
 </section>
 }
