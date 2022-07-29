@@ -1,11 +1,19 @@
 header {
     padding: 20px;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 header img {
     width: 50px;
     padding-left: 20px
+}
+
+@media screen and (max-width: 399px) {
+    header {
+        font-size: 1rem
+    }
 }

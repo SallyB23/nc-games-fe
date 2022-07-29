@@ -59,30 +59,34 @@ export default function SortByForm({
         <option value="comment_count">comment count</option>
         <option value="votes">number of votes</option>
       </select>
-      <br />
-      <input
-        type="radio"
-        id="asc"
-        name="order-direction"
-        value="asc"
-        checked={selectedDirection === "asc"}
-        onChange={() => {
-          setSelectedDirection("asc");
-        }}
-      />
-      <label htmlFor="asc">ascending</label>
-      <input
-        type="radio"
-        id="desc"
-        name="order-direction"
-        value="desc"
-        checked={selectedDirection === "desc"}
-        onChange={() => {
-          setSelectedDirection("desc");
-        }}
-      />
-      <label htmlFor="desc">descending</label>
-      <br />
+      <div className="order-direction-buttons">
+        <div className="radio-button">
+          <input
+            type="radio"
+            id="asc"
+            name="order-direction"
+            value="asc"
+            checked={selectedDirection === "asc"}
+            onChange={() => {
+              setSelectedDirection("asc");
+            }}
+          />
+          <label htmlFor="asc">ascending</label>
+        </div>
+        <div className="radio-button">
+          <input
+            type="radio"
+            id="desc"
+            name="order-direction"
+            value="desc"
+            checked={selectedDirection === "desc"}
+            onChange={() => {
+              setSelectedDirection("desc");
+            }}
+          />
+          <label htmlFor="desc">descending</label>
+        </div>
+      </div>
       <button type="button" onClick={handleOrderClick}>Order Reviews</button>
     </form>
   );

@@ -1,5 +1,5 @@
 .review-tile h2 {
-    padding: 5% 0
+    padding: 5% 2%
 }
 
 .review-tile p {
@@ -13,10 +13,16 @@
     aspect-ratio: 16/11;
     display: flex;
     justify-content: center;
+    overflow: hidden
+}
+
+.review-tile picture img {
+    min-width: 100%;
 }
 
 .review-text {
-    margin: 5%
+    margin: 5% 5% 0;
+    
 }
 
 .counts {
@@ -75,7 +81,50 @@
     border-radius: 50%;
     width: 100px;
     grid-row-start: 1;
-    grid-row-end: 5
+    grid-row-end: 5;
+    padding: 5%
+}
+
+/* new comment section */
+
+.new-comment {
+    background-color: rgb(238, 238, 238);
+    padding: 5%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.new-comment form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.new-comment .new-comment-logged-out {
+    text-align: center;
+    padding: 8%;
+    background-color: white;
+}
+
+.new-comment textarea {
+    border: none;
+    padding: 2%;
+    width: 95%
+}
+
+.new-comment button {
+    border-style: none;
+    background-color: white;
+    padding: 8px;
+    border-radius: 25px;
+    width: 145px;
+    margin: 10px 8px;
+    align-self: flex-end;
+    color: black
+}
+
+.new-comment button:hover {
+    background-color: lightgrey;
 }
 
 /* media queries */
