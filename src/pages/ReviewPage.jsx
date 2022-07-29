@@ -32,6 +32,5 @@ export default function ReviewPage () {
     return <main>
         <ReviewTile reviewData={reviewData} />
         <CommentsTile review_id={reviewData.review_id} />
-        <NewCommentForm review_id={reviewData.review_id}/>
     </main>
 }
