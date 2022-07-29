@@ -50,12 +50,12 @@
 
 /* comment section */
 
-.comments-section {
+#comments-section {
     text-align: left;
     padding: 5%
 }
 
-.comments-section h2 {
+#comments-section h2 {
     padding-bottom: 5%
 }
 
@@ -67,14 +67,25 @@
 
 .comment-card h4 {
     padding-top: 10px;
+    grid-column-start: 2
 }
 
 .comment-card h5 {
-    font-weight: normal
+    font-weight: normal;
+    grid-column-start: 2;
 }
 
 .comment-card p {
-    padding-bottom: 10%    
+    grid-column-start: 2;
+    grid-row-start: 3;
+    padding: 10% 0   
+}
+
+.delete-button {
+    grid-column-start: 2;
+    grid-row-start: 4;
+    width: 100px;
+    justify-self: right
 }
 
 .comment-card img {
@@ -127,6 +138,12 @@
     background-color: lightgrey;
 }
 
+.error-msg {
+    color: red;
+    text-align: center;
+    padding: 10px 10px 30px
+}
+
 /* media queries */
 
 @media screen and (min-width: 900px) {
@@ -160,4 +177,13 @@
         grid-area: body;
         padding: 0;
     }
+
+    /* .delete-button {
+        grid-column-start: 3;
+        max-height: 100px
+    } */
+
+    /* .comment-card {
+        grid-template-columns: 120px auto 10px;
+    } */
 }

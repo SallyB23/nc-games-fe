@@ -35,3 +35,7 @@ export function postNewComment(id, username, body) {
 export function postNewUser(name, username, avatar_url) {
     return api.post('users', { name, username, avatar_url })
 }
+
+export function deleteComment(id) {
+    return api.delete(`comments/${id}`)
+}
