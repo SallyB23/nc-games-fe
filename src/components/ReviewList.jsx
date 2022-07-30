@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getReviewList } from "../axios"
 import ReviewCard from "./ReviewCard"
 import { useParams } from "react-router-dom"
+import LoadingSpinner from "./LoadingSpinner"
 
 export default function ReviewList({ setCategory, orderBy, orderDirection }) {
     const [ reviewList, setReviewList ] = useState([])
@@ -26,7 +27,7 @@ export default function ReviewList({ setCategory, orderBy, orderDirection }) {
         })
     }, [category, orderBy, orderDirection])
 
-    if (isLoading) return <p>loading...</p>
+    if (isLoading) return <LoadingSpinner />
     if (isErr) return <p>{errMsg}</p>
     else return <section className="review-list">
         {reviewList.map(review => {
