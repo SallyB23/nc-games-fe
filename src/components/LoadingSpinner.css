@@ -1,18 +1,26 @@
 @keyframes spinner {
     0% {
         transform: rotate(0deg);
+        border-top: solid blueviolet
+    }
+    25% {
+        border-top: dotted lightgrey
+    }
+    50% {
+        border-top-color: blueviolet;
     }
     100% {
         transform: rotate(360deg);
+        border-top: solid blueviolet
     }
 }
 
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 5px solid rgb(238, 238, 238);
-    border-top: 5px solid rgb(55, 20, 88);
+    border: 6px solid transparent;
+    border-top: 6px dotted;
     border-radius: 50%;
-    animation: spinner 1.5s linear infinite;
-    margin: auto
+    animation: spinner 1.3s infinite;
+    margin: 5% auto
 }
