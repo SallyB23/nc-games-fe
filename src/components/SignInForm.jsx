@@ -2,30 +2,42 @@ import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUserDetails } from "../axios"
 import { UserContext } from "../contexts/User"
+import LoadingSpinner from "./LoadingSpinner"
 
 export default function SignInForm () {
     const { setUsername } = useContext(UserContext)
     const [ inputUsername, setInputUsername ] = useState("")
     const [ isErr, setIsErr ] = useState(false)
     const [ errMsg, setErrMsg ] = useState("")
+    const [ isLoading, setIsLoading ] = useState(false)
 
     const handleSubmit = (e) => {
-        setIsErr(false)
         e.preventDefault()
-        getUserDetails(inputUsername).then(({ data }) => {
-            setUsername(data.user.username)
-        })
-        .catch(err => {
+        if (inputUsername.length === 0) {
             setIsErr(true)
-            setErrMsg(err.response.data.message)
-        })
+            setErrMsg("Please enter a valid username")
+            isLoading(false)
+        } else {
+            setIsErr(false)
+            setErrMsg("")
+            setIsLoading(true)
+            getUserDetails(inputUsername).then(({ data }) => {
+                setUsername(data.user.username)
+                setIsLoading(false)
+            })
+            .catch(err => {
+                setIsErr(true)
+                setErrMsg(err.response.data.message)
+                setIsLoading(false)
+            })
+        }
     }
 
     return <section className="sign-in-forms">
     <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
-        <input onChange={(e) => {setInputUsername(e.target.value)}} type="text" /><br/>
-        <button type="submit">Sign in!</button>
+        <input onClick={() => {setIsErr(false)}} onChange={(e) => {setInputUsername(e.target.value)}} value={inputUsername} type="text" /><br/>
+        {isLoading? <LoadingSpinner /> : <button type="submit">Sign in!</button>}
     </form>
     <p>Need an account? <Link to="/sign-up">Sign up here!</Link></p>
     {isErr && <p className="error-msg">{errMsg}</p>}
