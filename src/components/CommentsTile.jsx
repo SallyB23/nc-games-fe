@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getCommentsForReview } from "../axios"
 import CommentCard from "./CommentCard"
+import LoadingSpinner from "./LoadingSpinner"
 import NewCommentForm from "./NewCommentForm"
 
 export default function CommentsTile ({ review_id }) {
@@ -17,7 +18,7 @@ export default function CommentsTile ({ review_id }) {
         })
     }, [])
 
-    if (isLoading) return <p>loading...</p>
+    if (isLoading) return <LoadingSpinner />
     return <section id="comments-section">
         <h2>Comments</h2>
             {isErr && <p className="error-msg">{errMsg}</p>}
