@@ -23,7 +23,7 @@ export default function CommentsTile ({ review_id }) {
         <h2>Comments</h2>
             {isErr && <p className="error-msg">{errMsg}</p>}
             {commentList.map(comment => {
-            return <CommentCard setErrMsg={setErrMsg} setIsErr={setIsErr} commentList={commentList} setCommentList={setCommentList} key={comment.comment_id} comment={comment}/>
+            return <CommentCard review_id={review_id} setErrMsg={setErrMsg} setIsErr={setIsErr} commentList={commentList} setCommentList={setCommentList} key={comment.comment_id} comment={comment}/>
         })}
         <NewCommentForm review_id={review_id} setCommentList={setCommentList} commentList={commentList}/>
     </section>

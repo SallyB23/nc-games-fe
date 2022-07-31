@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { deleteComment, getUserDetails } from "../axios"
 import { UserContext } from "../contexts/User"
 import { formatDate } from "../utils/utils"
+import BounceLoader from "./BounceLoader"
 
 export default function CommentCard ({ setErrMsg, setIsErr, comment, setCommentList }) {
     const { author, created_at, body } = comment
@@ -23,13 +24,11 @@ export default function CommentCard ({ setErrMsg, setIsErr, comment, setCommentL
     const handleDelete = () => {
         setIsUpdating(true)
         setIsErr(false)
-        deleteComment(comment.comment_id).then(() => {
+        deleteComment(comment.comment_id).then(({ data }) => {
             setCommentList(currList => {
-                const newList = [...currList]
-                const deleteItemIndex = newList.findIndex(item => {
-                    return item.comment_id === comment.comment_id
+                const newList = currList.filter(item => {
+                    return item.comment_id !== comment.comment_id
                 })
-                newList.splice(deleteItemIndex, 1)
                 return newList
             })
             setIsUpdating(false)
@@ -37,13 +36,12 @@ export default function CommentCard ({ setErrMsg, setIsErr, comment, setCommentL
         .catch(err => {
             setIsErr(true)
             setIsUpdating(false)
-            const message = <><p>Could not delete comment. Please try again later.</p><p>Error: {err.response.data.message}</p></>
-            setErrMsg(message)
+            setErrMsg(<p>Comment could no be deleted. Please try again later.</p>)
         })
     }
 
     return <div className="comment-card">
-            {isUpdating ? <p>Please wait...</p> :
+            {isUpdating ? <BounceLoader /> :
             <>
             <img className="user-avatar" src={authorDetails.avatar_url} alt="user avatar" />
             <h4>{authorDetails.username}</h4>

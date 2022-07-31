@@ -96,6 +96,14 @@
     padding: 5%
 }
 
+.comment-card .bounce-loader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    height: 10px; 
+    margin-bottom: 30px
+}
+
 /* new comment section */
 
 .new-comment {

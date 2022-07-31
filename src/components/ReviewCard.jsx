@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 export default function ReviewCard ({ review }) {
-    const { title, review_img_url, votes, comment_count, review_id, category, created_at } = review
+    const { title, review_img_url, votes, comment_count, review_id } = review
     const navigate = useNavigate()
 
 
